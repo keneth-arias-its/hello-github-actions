@@ -1,0 +1,159 @@
+name: GitHub Classroom Autograding
+
+on:
+  push:
+    paths:
+      - '.github/workflows/welcome.yml'
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Check if welcome.yml exists
+      id: check_file
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: 'Check for welcome.yml'
+        command: 'ls .github/workflows/welcome.yml'
+        input: ''
+        expected-output: 'welcome.yml'
+        comparison-method: 'included'
+        max-score: 1
+
+    - name: Check for workflow name
+      id: check_name
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: 'Check for workflow name'
+        command: 'grep "name:" .github/workflows/welcome.yml'
+        input: ''
+        expected-output: 'name:'
+        comparison-method: 'included'
+        max-score: 1
+
+    - name: Check for pull_request event
+      id: check_pr
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: 'Check for pull_request event'
+        command: 'grep "pull_request:" .github/workflows/welcome.yml'
+        input: ''
+        expected-output: 'pull_request:'
+        comparison-method: 'included'
+        max-score: 1
+
+    - name: Check for types filter
+      id: check_types
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: 'Check for types filter'
+        command: 'grep "types:" .github/workflows/welcome.yml'
+        input: ''
+        expected-output: 'types:'
+        comparison-method: 'included'
+        max-score: 1
+
+    - name: Check for permissions
+      id: check_permissions
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: 'Check for permissions'
+        command: 'grep -E "pull-requests: write|issues: write" .github/workflows/welcome.yml'
+        input: ''
+        expected-output: 'write'
+        comparison-method: 'included'
+        max-score: 1
+
+    - name: Check for jobs section
+      id: check_jobs
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: 'Check for jobs section'
+        command: 'grep "jobs:" .github/workflows/welcome.yml'
+        input: ''
+        expected-output: 'jobs:'
+        comparison-method: 'included'
+        max-score: 1
+
+    - name: Check for welcome job
+      id: check_welcome_job
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: 'Check for welcome job'
+        command: 'grep "welcome:" .github/workflows/welcome.yml'
+        input: ''
+        expected-output: 'welcome:'
+        comparison-method: 'included'
+        max-score: 1
+
+    - name: Check for runs-on
+      id: check_runs_on
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: 'Check for runs-on'
+        command: 'grep "runs-on: ubuntu-latest" .github/workflows/welcome.yml'
+        input: ''
+        expected-output: 'runs-on: ubuntu-latest'
+        comparison-method: 'included'
+        max-score: 1
+
+    - name: Check for steps section
+      id: check_steps
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: 'Check for steps section'
+        command: 'grep "steps:" .github/workflows/welcome.yml'
+        input: ''
+        expected-output: 'steps:'
+        comparison-method: 'included'
+        max-score: 1
+
+    - name: Check for gh pr comment
+      id: check_gh_pr_comment
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: 'Check for gh pr comment'
+        command: 'grep "gh pr comment" .github/workflows/welcome.yml'
+        input: ''
+        expected-output: 'gh pr comment'
+        comparison-method: 'included'
+        max-score: 1
+
+    - name: Check for GITHUB_TOKEN
+      id: check_token
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: 'Check for GITHUB_TOKEN'
+        command: 'grep "GITHUB_TOKEN:" .github/workflows/welcome.yml'
+        input: ''
+        expected-output: 'GITHUB_TOKEN:'
+        comparison-method: 'included'
+        max-score: 1
+
+    - name: Check for PR_URL
+      id: check_pr_url
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: 'Check for PR_URL'
+        command: 'grep "PR_URL:" .github/workflows/welcome.yml'
+        input: ''
+        expected-output: 'PR_URL:'
+        comparison-method: 'included'
+        max-score: 1
+
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        runners: check_file,check_name,check_pr,check_types,check_permissions,check_jobs,check_welcome_job,check_runs_on,check_steps,check_gh_pr_comment,check_token,check_pr_url
+      with:
+        runners: check_file,check_name,check_pr,check_types,check_permissions,check_jobs,check_welcome_job,check_runs_on,check_steps,check_gh_pr_comment,check_token,check_pr_url
