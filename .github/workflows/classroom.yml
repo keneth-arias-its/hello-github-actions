@@ -2,8 +2,9 @@ name: GitHub Classroom Autograding
 
 on:
   push:
-    paths:
-      - '.github/workflows/welcome.yml'
+    branches:
+      - welcome-workflow
+      - main
   workflow_dispatch:
 
 permissions:
