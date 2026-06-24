@@ -25,10 +25,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: 'Check for welcome.yml'
-        command: 'ls .github/workflows/welcome.yml'
+        command: 'test -f .github/workflows/welcome.yml && printf "%s\n" "welcome.yml"'
         input: ''
         expected-output: 'welcome.yml'
-        comparison-method: 'contains'
+        comparison-method: 'included'
         max-score: 1
 
     - name: Check for workflow name
@@ -36,10 +36,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: 'Check for workflow name'
-        command: 'grep "name:" .github/workflows/welcome.yml'
+        command: 'test "${{ steps.actionlint_check.outcome }}" = "success" && grep -Eq "^[[:space:]]*name:" .github/workflows/welcome.yml && printf "%s\n" "name:"'
         input: ''
         expected-output: 'name:'
-        comparison-method: 'contains'
+        comparison-method: 'included'
         max-score: 1
 
     - name: Check for pull_request event
@@ -47,10 +47,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: 'Check for pull_request event'
-        command: 'grep "pull_request:" .github/workflows/welcome.yml'
+        command: 'grep -Eq "^[[:space:]]*pull_request:" .github/workflows/welcome.yml && printf "%s\n" "pull_request:"'
         input: ''
         expected-output: 'pull_request:'
-        comparison-method: 'contains'
+        comparison-method: 'included'
         max-score: 1
 
     - name: Check for types filter
@@ -58,10 +58,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: 'Check for types filter'
-        command: 'grep "types:" .github/workflows/welcome.yml'
+        command: 'grep -Eq "^[[:space:]]*types:" .github/workflows/welcome.yml && printf "%s\n" "types:"'
         input: ''
         expected-output: 'types:'
-        comparison-method: 'contains'
+        comparison-method: 'included'
         max-score: 1
 
     - name: Check for permissions
@@ -69,10 +69,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: 'Check for permissions'
-        command: 'grep -E "pull-requests: write|issues: write" .github/workflows/welcome.yml'
+        command: 'grep -Eq "^[[:space:]]*pull-requests:[[:space:]]*write" .github/workflows/welcome.yml && printf "%s\n" "pull-requests: write"'
         input: ''
-        expected-output: 'write'
-        comparison-method: 'contains'
+        expected-output: 'pull-requests: write'
+        comparison-method: 'included'
         max-score: 1
 
     - name: Check for jobs section
@@ -80,10 +80,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: 'Check for jobs section'
-        command: 'grep "jobs:" .github/workflows/welcome.yml'
+        command: 'grep -Eq "^[[:space:]]*jobs:" .github/workflows/welcome.yml && printf "%s\n" "jobs:"'
         input: ''
         expected-output: 'jobs:'
-        comparison-method: 'contains'
+        comparison-method: 'included'
         max-score: 1
 
     - name: Check for welcome job
@@ -91,10 +91,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: 'Check for welcome job'
-        command: 'grep "welcome:" .github/workflows/welcome.yml'
+        command: 'grep -Eq "^[[:space:]]*welcome:" .github/workflows/welcome.yml && printf "%s\n" "welcome:"'
         input: ''
         expected-output: 'welcome:'
-        comparison-method: 'contains'
+        comparison-method: 'included'
         max-score: 1
 
     - name: Check for runs-on
@@ -102,10 +102,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: 'Check for runs-on'
-        command: 'grep "runs-on: ubuntu-latest" .github/workflows/welcome.yml'
+        command: 'grep -Eq "^[[:space:]]*runs-on:[[:space:]]*ubuntu-latest" .github/workflows/welcome.yml && printf "%s\n" "runs-on: ubuntu-latest"'
         input: ''
         expected-output: 'runs-on: ubuntu-latest'
-        comparison-method: 'contains'
+        comparison-method: 'included'
         max-score: 1
 
     - name: Check for steps section
@@ -113,10 +113,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: 'Check for steps section'
-        command: 'grep "steps:" .github/workflows/welcome.yml'
+        command: 'grep -Eq "^[[:space:]]*steps:" .github/workflows/welcome.yml && printf "%s\n" "steps:"'
         input: ''
         expected-output: 'steps:'
-        comparison-method: 'contains'
+        comparison-method: 'included'
         max-score: 1
 
     - name: Check for gh pr comment
@@ -124,10 +124,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: 'Check for gh pr comment'
-        command: 'grep "gh pr comment" .github/workflows/welcome.yml'
+        command: 'grep -Fq "gh pr comment" .github/workflows/welcome.yml && printf "%s\n" "gh pr comment"'
         input: ''
         expected-output: 'gh pr comment'
-        comparison-method: 'contains'
+        comparison-method: 'included'
         max-score: 1
 
     - name: Check for GITHUB_TOKEN
@@ -135,10 +135,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: 'Check for GITHUB_TOKEN'
-        command: 'grep "GITHUB_TOKEN:" .github/workflows/welcome.yml'
+        command: 'grep -Eq "^[[:space:]]*GITHUB_TOKEN:" .github/workflows/welcome.yml && printf "%s\n" "GITHUB_TOKEN:"'
         input: ''
         expected-output: 'GITHUB_TOKEN:'
-        comparison-method: 'contains'
+        comparison-method: 'included'
         max-score: 1
 
     - name: Check for PR_URL
@@ -146,10 +146,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: 'Check for PR_URL'
-        command: 'grep "PR_URL:" .github/workflows/welcome.yml'
+        command: 'grep -Eq "^[[:space:]]*PR_URL:" .github/workflows/welcome.yml && printf "%s\n" "PR_URL:"'
         input: ''
         expected-output: 'PR_URL:'
-        comparison-method: 'contains'
+        comparison-method: 'included'
         max-score: 1
 
     - name: Autograding Reporter
