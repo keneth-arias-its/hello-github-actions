@@ -22,10 +22,10 @@ In questo esercizio:
 
 ### Come iniziare questo esercizio
 
-1.  Fai clic con il pulsante destro su **[Start Exercise](../../actions/workflows/0-start-exercise.yml)** e aprilo in una nuova scheda.
-2.  Fai clic sul pulsante **Run workflow**.
+1.  Fai clic con il tasto destro su **[Step 0](../../actions/workflows/0-start-exercise.yml)** e aprilo in una nuova scheda.
+2.  Fai clic su **Run workflow**.
 3.  Seleziona il branch `main` e fai clic sul pulsante verde **Run workflow**.
-4.  Attendi circa 20 secondi e aggiorna questa pagina.
+4.  Attendi circa 20 secondi, poi aggiorna questa pagina.
 
 ---
 
