@@ -1,21 +1,21 @@
-## Step 2: Aggiungi un job al tuo file workflow
+## Step 2: Aggiungi un job al workflow
 
-Ottimo lavoro! :tada: Hai aggiunto un file workflow!
+Ottimo lavoro! :tada: Hai aggiunto il file del workflow.
 
 ### 📖 Teoria: Introduzione ai job
 
-Un [job](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#jobs) è un gruppo di step che vengono eseguiti insieme sullo stesso [runner](https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners) all'interno di un workflow. Ogni job è definito nella sezione `jobs` ed è eseguito in modo indipendente e in parallelo per impostazione predefinita.
+Un [job](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#jobs) è un gruppo di step che vengono eseguiti insieme sullo stesso [runner](https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners), all'interno di un workflow. Ogni job è definito nella sezione `jobs` e, per impostazione predefinita, viene eseguito in modo indipendente e in parallelo.
 
-I job ti aiutano a organizzare il tuo workflow in unità logiche, come la compilazione (building), il test o il deployment del tuo codice.
+I job ti aiutano a organizzare il workflow in unità logiche, per esempio build, test o deployment del codice.
 
 > [!Tip]
-> Puoi definire un job da eseguire con più [variazioni usando una strategia a matrice](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow).
+> Puoi eseguire lo stesso job con più [variazioni usando una strategia a matrice](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow).
 
-### ⌨️ Attività: Aggiungi un job al tuo file workflow
+### ⌨️ Attività: Aggiungi un job al workflow
 
 1. Nel branch `welcome-workflow`, apri il tuo file `.github/workflows/welcome.yml`.
 
-1. Modifica il file per aggiungere la sezione `jobs` e 1 job chiamato `welcome`, che verrà eseguito sull'ultimo sistema operativo Ubuntu.
+1. Modifica il file aggiungendo la sezione `jobs` e un job chiamato `welcome`, che verrà eseguito sull'ultima versione disponibile di Ubuntu.
 
    ```yaml
    name: Post welcome comment
@@ -30,14 +30,14 @@ I job ti aiutano a organizzare il tuo workflow in unità logiche, come la compil
        runs-on: ubuntu-latest
    ```
 
-1. Esegui il commit delle tue modifiche nel branch `welcome-workflow`.
+1. Fai il commit delle modifiche nel branch `welcome-workflow`.
 
-1. Con le informazioni sul job aggiunte, Octocat esaminerà il tuo lavoro e preparerà il passaggio successivo in questo esercizio!
+1. Dopo aver aggiunto il job, Octocat esaminerà il tuo lavoro e sbloccherà lo step successivo dell'esercizio.
 
 <details>
 <summary>Hai problemi? 🤷</summary><br/>
 
-- Assicurati che la sezione `jobs` sia correttamente indentata nel tuo file YAML.
-- Conferma di stare modificando il file e il branch corretti.
+- Assicurati che la sezione `jobs` sia indentata correttamente nel tuo file YAML.
+- Verifica di stare modificando il file e il branch corretti.
 
 </details>

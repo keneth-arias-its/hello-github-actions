@@ -1,15 +1,15 @@
-## Step 3: Aggiungi uno step al tuo file workflow
+## Step 3: Aggiungi uno step al workflow
 
-_Ottimo lavoro l'aggiunta di un job al tuo workflow! :dancer:_
+_Ottimo lavoro: hai aggiunto un job al tuo workflow! :dancer:_
 
 ### 📖 Teoria: Introduzione agli step nei job
 
-Gli [step](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps) sono i mattoni dei job, che ti permettono di automatizzare attività come il checkout del codice, l'esecuzione di comandi o l'uso di Action open source. Vengono eseguiti in sequenza nell'ambiente del job ma come processi indipendenti. A differenza del codice tradizionale con uno spazio di variabili condiviso, [input](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputs) e [output](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions) devono essere dichiarati esplicitamente.
+Gli [step](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps) sono gli elementi fondamentali dei job: ti permettono di automatizzare attività come il checkout del codice, l'esecuzione di comandi o l'uso di Action open source. Vengono eseguiti in sequenza nell'ambiente del job, ma come processi separati. A differenza del codice tradizionale, dove le variabili possono essere condivise nello stesso contesto, [input](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputs) e [output](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions) devono essere dichiarati esplicitamente.
 
 > [!TIP]
-> La parte migliore di GitHub Actions è il [marketplace](https://github.com/marketplace?type=actions) dove la community ha già costruito molti strumenti gratuiti utili per [trovare e personalizzare](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-pre-written-building-blocks-in-your-workflow)!
+> Uno dei punti di forza di GitHub Actions è il [marketplace](https://github.com/marketplace?type=actions): la community ha già creato molti strumenti gratuiti che puoi [trovare e personalizzare](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-pre-written-building-blocks-in-your-workflow).
 
-### ⌨️ Attività: Aggiungi uno step al tuo file workflow
+### ⌨️ Attività: Aggiungi uno step al workflow
 
 1. Nel branch `welcome-workflow`, apri il tuo file `.github/workflows/welcome.yml`.
 
@@ -33,14 +33,14 @@ Gli [step](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-
              PR_URL: ${{ github.event.pull_request.html_url }}
    ```
 
-1. Esegui il commit delle tue modifiche direttamente nel branch `welcome-workflow`.
+1. Fai il commit delle modifiche direttamente nel branch `welcome-workflow`.
 
-1. Con le informazioni sullo step aggiunte, Octocat esaminerà il tuo lavoro e preparerà il passaggio successivo in questo esercizio!
+1. Dopo aver aggiunto lo step, Octocat esaminerà il tuo lavoro e sbloccherà lo step successivo dell'esercizio.
 
 <details>
 <summary>Hai problemi? 🤷</summary><br/>
 
-- Assicurati che la sezione `steps` sia sotto il job `welcome` e correttamente indentata.
-- Assicurati di avere le variabili d'ambiente corrette impostate.
+- Assicurati che la sezione `steps` sia sotto il job `welcome` e che l'indentazione sia corretta.
+- Verifica che siano impostate le variabili d'ambiente corrette.
 
 </details>
